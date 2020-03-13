@@ -10,7 +10,7 @@ const pstyle = {
 
 function Top() {
   return(
-  <p>hi from hp</p>
+  <p>hi from macmini</p>
   )
 }
 
