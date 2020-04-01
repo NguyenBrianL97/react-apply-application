@@ -12,6 +12,7 @@ const pstyle = {
 function Bottom() {
   return(
   <a style={pstyle} href="https://github.com/NguyenBrianL97/react-apply-application">Check out my other projects!</a>
+
   )
 }
 

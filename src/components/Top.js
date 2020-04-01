@@ -6,10 +6,8 @@ const pstyle = {
     textAlign: 'center',
     borderRadius: '20px',
     borderStyle: 'solid'
-    
-    
-
 }
+
 
 
 function Top() {
