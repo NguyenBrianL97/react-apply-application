@@ -18,7 +18,8 @@ class Header extends React.Component{
         <h1 >Header</h1>
         <Link to="/">Home</Link> | 
         <Link to="/CRUD">CRUD</Link> |
-        <Link to="/Sandbox">ClassExample</Link>
+        <Link to="/Sandbox">ClassExample</Link> |
+        <Link to="/Reduxexp">ReduxExample</Link>
         </header>
     )
   }

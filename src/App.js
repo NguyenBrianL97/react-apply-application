@@ -8,6 +8,7 @@ import Bottom from './components/Bottom.js'
 import ClassExample from './components/ClassExample.js'
 import Crud from './components/pages/Crud.js'
 import Header from './components/layout/Header'
+import Reduxexp from './components/Reduxexp';
 
 
 class App extends Component{
@@ -27,6 +28,7 @@ class App extends Component{
             )}/>
             <Route path='/Sandbox' component={ClassExample} />
             <Route path='/CRUD' component={Crud} />
+            <Route path='/Reduxexp' component={Reduxexp} />
             
           </div> 
         </div>
