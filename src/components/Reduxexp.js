@@ -26,7 +26,7 @@ function Reduxexp(props)
                 </tr>
             </tbody>
         </table><br/><br/>
-        <button type="button" onClick={()=>mystore.dispatch(empAction())}>Update EmpDetails</button><br/><br/>
+        <button type="button" onClick={props.empUpdate}>Update EmpDetails</button><br/><br/>
         <table border='1'>
             <thead>
                 <tr>
@@ -37,9 +37,9 @@ function Reduxexp(props)
             </thead>
             <tbody>
                 <tr>
-                    <td>{props.studReducer.stuid}</td>
-                    <td>{props.studReducer.stuname}</td>
-                    <td>{props.studReducer.rollno}</td>
+                    <td>{mystore.getState().studReducer.stuid}</td>
+                    <td>{mystore.getState().studReducer.stuname}</td>
+                    <td>{mystore.getState().studReducer.rollno}</td>
                 </tr>
             </tbody>
         </table><br/><br/>
