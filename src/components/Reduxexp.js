@@ -1,9 +1,11 @@
-import React,{component} from 'react';
+import React from 'react';
 import mystore from './../store';
 import {empAction} from './../action';
 import {studAction} from './../action';
 
-function Reduxexp()
+import { connect } from 'react-redux'
+
+function Reduxexp(props)
 {
     return(<div>
         <table border='1'>
@@ -17,10 +19,10 @@ function Reduxexp()
             </thead>
             <tbody>
                 <tr>
-                    <td>{mystore.getState().empReducer.empid}</td>
-                    <td>{mystore.getState().empReducer.empname}</td>
-                    <td>{mystore.getState().empReducer.contact}</td>
-                    <td>{mystore.getState().empReducer.dept}</td>
+                    <td>{props.empReducer.empid}</td>
+                    <td>{props.empReducer.empname}</td>
+                    <td>{props.empReducer.contact}</td>
+                    <td>{props.empReducer.dept}</td>
                 </tr>
             </tbody>
         </table><br/><br/>
@@ -35,9 +37,9 @@ function Reduxexp()
             </thead>
             <tbody>
                 <tr>
-                    <td>{mystore.getState().studReducer.stuid}</td>
-                    <td>{mystore.getState().studReducer.stuname}</td>
-                    <td>{mystore.getState().studReducer.rollno}</td>
+                    <td>{props.studReducer.stuid}</td>
+                    <td>{props.studReducer.stuname}</td>
+                    <td>{props.studReducer.rollno}</td>
                 </tr>
             </tbody>
         </table><br/><br/>
@@ -45,4 +47,18 @@ function Reduxexp()
     </div>)
 }
 
-export default Reduxexp;
+const mappingStateToProps=(state)=>
+{
+    return{
+        empReducer:state.empReducer,
+        studReducer:state.studReducer
+    }
+}
+const mappingDispatchToProps=(dispatch)=>
+{
+    return{
+        empUpdate:()=>{dispatch(empAction())},
+        studUpdate:()=>{dispatch(studAction())},
+    }
+}
+export default connect(mappingStateToProps,mappingDispatchToProps)(Reduxexp);
