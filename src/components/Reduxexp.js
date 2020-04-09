@@ -1,8 +1,6 @@
 import React from 'react';
 import mystore from './../store';
-import {empAction} from './../action';
-import {studAction} from './../action';
-
+import {empAction, studAction, userAction} from './../action';
 import { connect } from 'react-redux'
 
 function Reduxexp(props)
@@ -44,6 +42,21 @@ function Reduxexp(props)
             </tbody>
         </table><br/><br/>
         <button type="button" onClick={()=>mystore.dispatch(studAction())}>Update StudDetails</button><br/><br/>
+
+        <button type="button" onClick={props.userUpdate}>Update UserDetails</button><br/><br/>        
+        {props.userReducer.map(val=>
+          <div>
+              <table border="1">
+                  <tr key={props.userReducer.id}>
+                      <td>{val.id}</td>
+                      <td>{val.name}</td>
+                      <td>{val.username}</td>
+                      <td>{val.email}</td>
+                  </tr>
+              </table>
+          </div>
+        )}
+
     </div>)
 }
 
@@ -51,14 +64,16 @@ const mappingStateToProps=(state)=>
 {
     return{
         empReducer:state.empReducer,
-        studReducer:state.studReducer
+        studReducer:state.studReducer,
+        userReducer:state.userReducer
     }
 }
 const mappingDispatchToProps=(dispatch)=>
 {
     return{
-        empUpdate:()=>{dispatch(empAction())},
-        studUpdate:()=>{dispatch(studAction())},
+        empUpdate:()=>{dispatch(empAction)},
+        studUpdate:()=>{dispatch(studAction)},
+        userUpdate:()=>{dispatch(userAction)}
     }
 }
 export default connect(mappingStateToProps,mappingDispatchToProps)(Reduxexp);
